@@ -115,20 +115,10 @@ $image = $statement->fetch(PDO::FETCH_ASSOC);
 
 
  ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-      <p><?php echo 'Your user ID is: ' . $userID; ?></p>
-      <?php if ($authenticated): ?>
-        <a href="index.php">Index</a>
-        <a href="app/auth/logout.php">Logga ut</a>
-      <?php else: ?>
-        <a href="index.php">Logga in</a>
-      <?php endif; ?>
+
+<?php require __DIR__.'/views/header.php'; ?>
+<?php require __DIR__.'/views/navigation.php'; ?>
+
         <h1>Ändra profil</h1>
         <form action="admin.php" method="post">
           <label for="email">Email</label>
@@ -148,5 +138,5 @@ $image = $statement->fetch(PDO::FETCH_ASSOC);
           <button type="submit">Upload</button>
         </form>
         <img src="<?php echo $image['avatar']; ?>"></img>
-    </body>
-</html>
+
+<?php require __DIR__.'/views/footer.php'; ?>

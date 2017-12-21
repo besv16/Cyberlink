@@ -30,13 +30,8 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 
  ?>
- <!DOCTYPE html>
- <html lang="en">
-     <head>
-         <meta charset="utf-8">
-         <meta name="viewport" content="width=device-width, initial-scale=1">
-     </head>
-     <body>
+<?php require __DIR__.'/../../views/header.php'; ?>
+<?php require __DIR__.'/../../views/navigation.php'; ?>
        <h1>Registrera dig</h1>
        <form action="register.php" method="post">
          <label for="name">Email</label>
@@ -47,5 +42,4 @@ if (isset($_POST['email'], $_POST['password'])) {
          <br />
          <button type="submit">Registrera</button>
         </form>
-     </body>
- </html>
+<?php require __DIR__.'/../../views/footer.php'; ?>

@@ -12,14 +12,8 @@ $userID = $_SESSION['userID'] ?? '';
 $authenticated = $_SESSION['authenticated'] ?? false;
 
  ?>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/styles/main.css" type="text/css"/>
-    </head>
-    <body>
+  <?php require __DIR__.'/views/header.php'; ?>
+  <?php require __DIR__.'/views/navigation.php'; ?>
       <p><?php echo $userID; ?></p>
       <?php if ($message !== ''): ?>
         <p><?php echo $message; ?></p>
@@ -40,5 +34,4 @@ $authenticated = $_SESSION['authenticated'] ?? false;
           <button type="submit">Logga in</button>
         </form>
       <?php endif; ?>
-    </body>
-</html>
+  <?php require __DIR__.'/views/footer.php'; ?>
