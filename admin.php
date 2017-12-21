@@ -114,6 +114,8 @@ $image = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 
+
+
  ?>
 
 <?php require __DIR__.'/views/header.php'; ?>
