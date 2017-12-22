@@ -38,8 +38,16 @@ $statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
 
-$links = $statement->fetch(PDO::FETCH_ASSOC);
-foreach ($links as $link) {}
+$links = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+echo '<h1>Din/a länk/ar</h1>';
+foreach ($links as $link) {
+  echo $link['title'] . '<br />';
+  echo $link['description'] . '<br />';
+  echo $link['url'] . '<br />';
+  echo $link['user'] . '<br />';
+  echo '<br/>';
+}
 
  ?>
   <?php require __DIR__.'/views/header.php'; ?>
@@ -55,16 +63,16 @@ foreach ($links as $link) {}
         <p><?php echo $testing['bio']; ?></p>
         <img src="<?php echo $image['avatar']; ?>"></img>
 
-
-        <h1>Din/a länk/ar</h1>
-        <p><?php echo 'URL: ' . $links['url']; ?></p>
-        <p><?php echo 'Uppladdad av användare: ' . $links['user']; ?></p>
-
         <h1>Lägg till en länk!</h1>
         <form action="app/links/store.php" method="post">
+          <label for="name">Titel</label>
+          <input type="text" name="title">
+          <br />
+          <label for="name">Beskrivning</label>
+          <input type="text" name="description">
+          <br />
           <label for="name">URL</label>
           <input type="text" name="url">
-          <br />
           <button type="submit">Lägg till!</button>
         </form>
 
