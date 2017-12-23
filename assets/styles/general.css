@@ -1,0 +1,27 @@
+/* General */
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body {
+  background-color: #eee;
+}
+
+.header {
+  width: 100%;
+  height: 10vh;
+  margin: 0 auto;
+  background-color: maroon;
+}
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  margin: 0 auto;
+  background-color: maroon;
+}
