@@ -1,3 +1,8 @@
 body {
   background-color: plum;
 }
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
