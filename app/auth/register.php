@@ -32,7 +32,23 @@ if (isset($_POST['email'], $_POST['password'])) {
  ?>
 <?php require __DIR__.'/../../views/header.php'; ?>
 <?php require __DIR__.'/../../views/navigation.php'; ?>
-       <h1>Registrera dig</h1>
+
+<div class="landing-page">
+  <div class="img-demo">
+    <img src="/Cyberlink/media/img/demo-index.svg"></img>
+  </div>
+  <div class="login-signup">
+    <h1>Sign up</h1>
+    <form action="register.php" method="post">
+      <input type="text" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Join our community!</button>
+    </form>
+  </div>
+</div>
+
+
+       <!-- <h1>Registrera dig</h1>
        <form action="register.php" method="post">
          <label for="name">Email</label>
          <input type="text" name="email">
@@ -41,5 +57,6 @@ if (isset($_POST['email'], $_POST['password'])) {
          <input type="password" name="password">
          <br />
          <button type="submit">Registrera</button>
-        </form>
+        </form> -->
+
 <?php require __DIR__.'/../../views/footer.php'; ?>

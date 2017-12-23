@@ -1,3 +1,31 @@
+/* General */
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body {
+  background-color: #eee;
+}
+
+.header {
+  width: 100%;
+  height: 10vh;
+  margin: 0 auto;
+  background-color: maroon;
+}
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  margin: 0 auto;
+  background-color: maroon;
+}
+
 /* Landing page */
 
 .landing-page {
@@ -10,27 +38,55 @@
 }
 
 .img-demo {
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .img-demo img {
-  width: 80%;
+  width: 350px;
 }
 
 .login-signup {
-  width: 60%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .login-signup * {
-  width: 80%;
-  margin-top: 2%;
+  width: 300px;
+  margin-top: 5%;
 }
+
+.login-signup h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form * {
+  margin-top: 20%;
+}
+
+form input {
+  height: 50px;
+  padding-left: 8px;
+  background-color: #eee;
+}
+
+.login-signup a {
+  text-align: center;
+}
+
 
 .content {
   height: 80vh;

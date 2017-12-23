@@ -126,13 +126,7 @@ $statement->execute();
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 echo '<h1>Din/a länk/ar</h1>';
-foreach ($links as $link) {
-  echo $link['title'] . '<br />';
-  echo $link['description'] . '<br />';
-  echo $link['url'] . '<br />';
-  echo $link['user'] . '<br />';
-  echo '<br/>';
-}
+foreach ($links as $link) { }
 
 
 $pdo = new PDO('sqlite:app/database/database.db');
@@ -158,6 +152,15 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
 
+<?php
+
+echo $link['title'] . '<br />';
+echo $link['description'] . '<br />';
+echo $link['url'] . '<br />';
+echo 'user ID: ' . $link['user'] . '<br />';
+echo '<br/>';
+
+?>
 
 <h1>Ändra profil</h1>
 <form action="admin.php" method="post">
@@ -178,8 +181,6 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
   <button type="submit">Upload</button>
 </form>
 <img src="<?php echo $image['avatar']; ?>"></img>
-<a href="admin.php">Din profil</a>
-<a href="app/auth/logout.php">Logga ut</a>
 <p><?php echo $testing['email']; ?></p>
 <p><?php echo $testing['bio']; ?></p>
 <img src="<?php echo $image['avatar']; ?>"></img>

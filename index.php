@@ -21,15 +21,13 @@ $authenticated = $_SESSION['authenticated'] ?? false;
   <div class="login-signup">
     <h1>Log in</h1>
     <form action="app/auth/login.php" method="post">
-      <label for="name">Email</label>
-      <input type="text" name="email">
-      <br />
-      <label for="password">Password</label>
-      <input type="password" name="password">
-      <br />
+      <input type="text" name="email" placeholder="Email">
+
+      <input type="password" name="password" placeholder="Password">
+
       <button type="submit">Sign in</button>
     </form>
-    <a href="app/auth/register.php">Or maybe you don't have an account? - Then sign up!</a>
+    <a href="app/auth/register.php">Don't have an account? - Then sign up for one!</a>
   </div>
 </div>
 <!-- ifall inloggning lyckades appliceras detta på sidan: -->
