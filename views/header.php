@@ -7,7 +7,4 @@
         <link rel="stylesheet" href="/Cyberlink/assets/styles/main.css" type="text/css"/>
     </head>
     <body>
-      <div class="header">
-        <h1>HEADER/NAVIGATION HERE</h1>
-      </div>
         <div class="wrapper">

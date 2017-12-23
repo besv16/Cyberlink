@@ -1,8 +1,7 @@
 /* General */
 
 .wrapper {
-  width: 80%;
-  height: 80vh;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -32,24 +31,37 @@ body {
 /* Landing page */
 
 .landing-page {
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
+  height: 80vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.landing-page img {
-  width: 28%;
+.img-demo {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.img-demo img {
+  width: 80%;
 }
 
 .login-signup {
-  width: 35%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .login-signup * {
-  width: 100%;
+  width: 80%;
   margin-top: 2%;
+}
+
+.content {
+  height: 80vh;
 }
