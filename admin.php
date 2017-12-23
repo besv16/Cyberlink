@@ -180,7 +180,6 @@ echo '<br/>';
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
 </form>
-<img src="<?php echo $image['avatar']; ?>"></img>
 <p><?php echo $testing['email']; ?></p>
 <p><?php echo $testing['bio']; ?></p>
 <img src="<?php echo $image['avatar']; ?>"></img>
