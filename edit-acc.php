@@ -103,70 +103,8 @@ if (isset($_FILES['avatar'])) {
   $statement_insert_avatar->execute();
   $avatar3 = $statement_insert_avatar->fetch(PDO::FETCH_ASSOC);
 
-}
+} ?>
 
-
-// HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
-
-$statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
-$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
-$statement->execute();
-
-$image = $statement->fetch(PDO::FETCH_ASSOC);
-
-
-
-
-// HÄMTA LÄNK/AR UR DATABASEN OCH VISA UPP...
-$pdo = new PDO('sqlite:app/database/database.db');
-$statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
-$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
-$statement->execute();
-
-$links = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-
-$pdo = new PDO('sqlite:app/database/database.db');
-
-
-// HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
-$statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
-$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
-$statement->execute();
-
-$image = $statement->fetch(PDO::FETCH_ASSOC);
-
-// HÄMTA ALL USER INFO UR DATABASEN OCH VISA UPP...
-$statement = $pdo->prepare('SELECT * FROM user WHERE userID = :userID');
-$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
-$statement->execute();
-
-$testing = $statement->fetch(PDO::FETCH_ASSOC);
-
-
- ?>
-
-<?php require __DIR__.'/views/header.php'; ?>
-<?php require __DIR__.'/views/navigation.php'; ?>
-
-<img src="<?php echo $image['avatar']; ?>"></img>
-<p><?php echo $testing['email']; ?></p>
-<p><?php echo $testing['bio']; ?></p>
-
-<?php
-
-echo '<h1>Din/a länk/ar</h1>';
-foreach ($links as $link) {
-  echo $link['title'] . '<br />';
-  echo $link['description'] . '<br />';
-  echo $link['url'] . '<br />';
-  echo 'user ID: ' . $link['user'] . '<br />';
-  echo '<br/>';
-}
-
-?>
 
 <h1>Ändra profil</h1>
 <form action="admin.php" method="post">
@@ -186,21 +124,3 @@ foreach ($links as $link) {
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
 </form>
-
-<h1>Lägg till en länk!</h1>
-<form action="app/links/store.php" method="post">
-  <label for="name">Titel</label>
-  <input type="text" name="title">
-  <br />
-  <label for="name">Beskrivning</label>
-  <input type="text" name="description">
-  <br />
-  <label for="name">URL</label>
-  <input type="text" name="url">
-  <button type="submit">Lägg till!</button>
-</form>
-
-<a href="edit-acc.php">ändra din profil</a>
-<a href="edit-links.php">ändra dina länkar</a>
-
-<?php require __DIR__.'/views/footer.php'; ?>
