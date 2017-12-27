@@ -14,6 +14,7 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 <?php //if ($message !== ''): ?>
 <!-- <p><?php //echo $message; ?></p> -->
 <?php //endif; ?>
+<h1 class="heading-slogan">Cyberlink</h1>
 <div class="landing-page">
   <div class="img-demo">
     <img src="media/img/demo-index.svg"></img>
@@ -32,6 +33,6 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 </div>
 <!-- ifall inloggning lyckades appliceras detta på sidan: -->
 <?php if ($authenticated): ?>
-  <?php header('Location: admin.php'); ?>
+  <?php header('Location: feed.php'); ?>
 <?php endif; ?>
   <?php require __DIR__.'/views/footer.php'; ?>

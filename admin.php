@@ -150,6 +150,7 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
+<h1 class="heading-slogan">Cyberlink</h1>
 
 <img src="<?php echo $image['avatar']; ?>"></img>
 <p><?php echo $testing['email']; ?></p>
