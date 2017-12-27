@@ -28,6 +28,8 @@ body {
   justify-content: flex-end;
   align-items: center;
   background-color: #666;
+
+  text-align: left;
 }
 
 img.nav-icon {
@@ -36,6 +38,7 @@ img.nav-icon {
 }
 
 .header li {
+  margin-right: 40px;
   list-style: none;
 }
 
@@ -46,6 +49,10 @@ img.nav-icon {
 h1.heading-slogan {
   font-size: 28px;
   text-align: center;
+}
+
+button {
+  height: 40px;
 }
 
 .footer {

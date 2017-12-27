@@ -29,7 +29,6 @@ $statement->execute();
 
 <?php require __DIR__.'/views/navigation.php'; ?>
 <div class="share-container">
-  <h1 class="heading-slogan">Cyberlink</h1>
   <img src="<?php echo $img['avatar']; ?>"></img>
   <form action="feed.php" method="post">
     <input type="text" name="title" placeholder="Title">
