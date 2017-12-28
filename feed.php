@@ -48,7 +48,7 @@ foreach ($links as $link) {
     <div class="top"><img class="feed-avatar" src="<?php echo $link{'avatar'}; ?>"></img>
     <div class="title-url"><p><?php echo $link{'title'}; ?></p>
     <p><?php echo $link{'url'}; ?></p></div></div>
-    <div><p><?php echo $link{'description'}; ?></p></div>
+    <div class="description"><p><?php echo $link{'description'}; ?></p></div>
     <div><p><?php echo $link{'email'}; ?></p></div>
   </article>
 

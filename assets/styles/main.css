@@ -9,6 +9,15 @@
   font-family: 'Ubuntu', serif;
 }
 
+.wrapper form input, .wrapper form button {
+  background-color: #fafafa;
+  border: 1px solid #efefef;
+}
+
+.wrapper form button {
+  color: #666;
+}
+
 .wrapper img {
   width: 160px;
   border-radius: 50%;
@@ -168,9 +177,12 @@ form input {
 }
 
 .post {
-  margin: 0 auto;
+  font-size: 14px;
+  width: 600px;
+  margin: 30px auto;
   display: flex;
   flex-direction: column;
+  letter-spacing: 1.3px;
 }
 
 img.feed-avatar {
@@ -182,9 +194,14 @@ img.feed-avatar {
 }
 
 .title-url {
-  margin-left: 10px;
+  margin-left: 15px;
   height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+}
+
+.description {
+  margin: 20px 0px 20px 0px;
+  width: 500px;
 }
