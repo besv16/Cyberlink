@@ -9,7 +9,6 @@ $userID = $_SESSION['userID'] ?? '';
 
 require __DIR__.'/views/header.php';
 
-
 $pdo = new PDO('sqlite:app/database/database.db');
 
 // HÄMTA ANVÄNDARBILDEN UR DATABASEN OCH VISA UPP...
@@ -36,13 +35,12 @@ $statement->execute();
   </form>
 </div>
 
-
 <?php
+
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($links as $link) {
   ?>
-
   <article class="post">
     <div class="top"><img class="feed-avatar" src="<?php echo $link{'avatar'}; ?>"></img>
     <div class="title-url"><p><?php echo $link{'title'}; ?></p>
@@ -50,11 +48,8 @@ foreach ($links as $link) {
     <div class="description"><p><?php echo $link{'description'}; ?></p></div>
     <div><p><?php echo $link{'email'}; ?></p></div>
   </article>
-
   <?php
 }
-
 ?>
-
 
 <?php require __DIR__.'/views/footer.php'; ?>
