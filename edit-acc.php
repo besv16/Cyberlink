@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-require __DIR__.'/views/header.php';
-
 // startar session
 session_start();
 
@@ -17,7 +15,6 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 
 if (isset($_POST['email'])) {
   if (empty($_POST['email'])) {
-    echo "Du måste fylla i en email-adress";
   }
   else {
     $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
@@ -38,7 +35,6 @@ if (isset($_POST['email'])) {
 
 if (isset($_POST['password'])) {
   if (empty($_POST['password'])) {
-    echo "Du måste fylla i ett lösenord";
   }
   else {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -60,7 +56,6 @@ if (isset($_POST['password'])) {
 
 if (isset($_POST['bio'])) {
   if (empty($_POST['bio'])) {
-    echo "Du måste fylla i en biotext";
   }
   else {
     $bio = filter_var($_POST['bio'], FILTER_SANITIZE_STRING);
@@ -103,7 +98,64 @@ if (isset($_FILES['avatar'])) {
   $statement_insert_avatar->execute();
   $avatar3 = $statement_insert_avatar->fetch(PDO::FETCH_ASSOC);
 
-} ?>
+}
+
+
+// HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
+
+$statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
+$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
+$statement->execute();
+
+$image = $statement->fetch(PDO::FETCH_ASSOC);
+
+
+
+
+// HÄMTA LÄNK/AR UR DATABASEN OCH VISA UPP...
+$pdo = new PDO('sqlite:app/database/database.db');
+$statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
+$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
+$statement->execute();
+
+$links = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+$pdo = new PDO('sqlite:app/database/database.db');
+
+
+// HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
+$statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
+$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
+$statement->execute();
+
+$image = $statement->fetch(PDO::FETCH_ASSOC);
+
+// HÄMTA ALL USER INFO UR DATABASEN OCH VISA UPP...
+$statement = $pdo->prepare('SELECT * FROM user WHERE userID = :userID');
+$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
+$statement->execute();
+
+$testing = $statement->fetch(PDO::FETCH_ASSOC);
+
+
+ ?>
+
+<?php require __DIR__.'/views/header.php'; ?>
+<?php require __DIR__.'/views/navigation.php'; ?>
+
+
+<div class="account">
+  <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
+  <div class="meta">
+    <p><?php echo $testing['email']; ?></p>
+  </div>
+</div>
+<div class="bio">
+  <p><?php echo $testing['bio']; ?></p>
+</div>
 
 
 <h1>Ändra profil</h1>
@@ -124,3 +176,19 @@ if (isset($_FILES['avatar'])) {
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
 </form>
+
+<!-- <h1>Lägg till en länk!</h1>
+<form action="app/links/store.php" method="post">
+  <label for="name">Titel</label>
+  <input type="text" name="title">
+  <br />
+  <label for="name">Beskrivning</label>
+  <input type="text" name="description">
+  <br />
+  <label for="name">URL</label>
+  <input type="text" name="url">
+  <button type="submit">Lägg till!</button>
+</form> -->
+
+
+<?php require __DIR__.'/views/footer.php'; ?>

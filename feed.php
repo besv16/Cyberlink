@@ -23,20 +23,19 @@ $img = $statement_1->fetch(PDO::FETCH_ASSOC);
 $statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID');
 $statement->execute();
 
-
-
- ?>
+?>
 
 <?php require __DIR__.'/views/navigation.php'; ?>
 <div class="share-container">
-  <img src="<?php echo $img['avatar']; ?>"></img>
-  <form action="feed.php" method="post">
+  <img class="profile-avatar" src="<?php echo $img['avatar']; ?>"></img>
+  <form action="app/links/store.php" method="post">
     <input type="text" name="title" placeholder="Title">
     <input type="text" name="url" placeholder="URL">
     <input type="text" name="description" placeholder="Description">
     <button type="submit">Share!</button>
   </form>
 </div>
+
 
 <?php
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);

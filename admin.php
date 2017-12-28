@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-require __DIR__.'/views/header.php';
-
 // startar session
 session_start();
 
@@ -17,7 +15,6 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 
 if (isset($_POST['email'])) {
   if (empty($_POST['email'])) {
-    echo "Du måste fylla i en email-adress";
   }
   else {
     $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
@@ -38,7 +35,6 @@ if (isset($_POST['email'])) {
 
 if (isset($_POST['password'])) {
   if (empty($_POST['password'])) {
-    echo "Du måste fylla i ett lösenord";
   }
   else {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -60,7 +56,6 @@ if (isset($_POST['password'])) {
 
 if (isset($_POST['bio'])) {
   if (empty($_POST['bio'])) {
-    echo "Du måste fylla i en biotext";
   }
   else {
     $bio = filter_var($_POST['bio'], FILTER_SANITIZE_STRING);
@@ -151,19 +146,28 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
 
-<img src="<?php echo $image['avatar']; ?>"></img>
-<p><?php echo $testing['email']; ?></p>
-<p><?php echo $testing['bio']; ?></p>
+
+<div class="account">
+  <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
+  <div class="meta">
+    <p><?php echo $testing['email']; ?></p>
+  </div>
+</div>
+<div class="bio">
+  <p><?php echo $testing['bio']; ?></p>
+</div>
 
 <?php
 
 echo '<h1>Din/a länk/ar</h1>';
 foreach ($links as $link) {
-  echo $link['title'] . '<br />';
-  echo $link['description'] . '<br />';
-  echo $link['url'] . '<br />';
-  echo 'user ID: ' . $link['user'] . '<br />';
-  echo '<br/>';
+  ?>
+  <div class="post">
+    <p><?php echo $link['title']; ?></p>
+    <p><?php echo $link['description']; ?></p>
+    <p><?php echo $link['url']; ?></p>
+  </div>
+  <?php
 }
 
 ?>
@@ -187,7 +191,7 @@ foreach ($links as $link) {
   <button type="submit">Upload</button>
 </form>
 
-<h1>Lägg till en länk!</h1>
+<!-- <h1>Lägg till en länk!</h1>
 <form action="app/links/store.php" method="post">
   <label for="name">Titel</label>
   <input type="text" name="title">
@@ -198,7 +202,7 @@ foreach ($links as $link) {
   <label for="name">URL</label>
   <input type="text" name="url">
   <button type="submit">Lägg till!</button>
-</form>
+</form> -->
 
 <a href="edit-acc.php">ändra din profil</a>
 <a href="edit-links.php">ändra dina länkar</a>

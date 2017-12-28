@@ -66,6 +66,10 @@ div.navigation {
   display: flex;
 }
 
+img.profile-avatar {
+  border: 1px solid #efefef;
+}
+
 button {
   height: 40px;
 }
@@ -204,4 +208,28 @@ img.feed-avatar {
 .description {
   margin: 20px 0px 20px 0px;
   width: 500px;
+}
+
+/* admin.php */
+
+.account {
+  margin: 40px auto;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.meta {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.bio {
+  margin: 40px auto;
+  width: 50%;
 }
