@@ -20,9 +20,8 @@ if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
     $url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
 
     // TODO: Implement the database insert logic here.
-
     $statement_insert = $pdo->prepare('INSERT INTO link (title, description, url, user) VALUES (:title, :description, :url, :user)');
-
+    
     if (!$statement_insert) {
       die(var_dump($pdo->errorInfo()));
     }

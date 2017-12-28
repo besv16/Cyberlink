@@ -147,7 +147,6 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
 
-
 <div class="account">
   <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
   <div class="meta">
@@ -157,7 +156,6 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <div class="bio">
   <p><?php echo $testing['bio']; ?></p>
 </div>
-
 
 <h1>Ändra profil</h1>
 <form action="edit-acc.php" method="post">
@@ -177,19 +175,5 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
 </form>
-
-<!-- <h1>Lägg till en länk!</h1>
-<form action="app/links/store.php" method="post">
-  <label for="name">Titel</label>
-  <input type="text" name="title">
-  <br />
-  <label for="name">Beskrivning</label>
-  <input type="text" name="description">
-  <br />
-  <label for="name">URL</label>
-  <input type="text" name="url">
-  <button type="submit">Lägg till!</button>
-</form> -->
-
 
 <?php require __DIR__.'/views/footer.php'; ?>
