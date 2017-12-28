@@ -31,6 +31,7 @@ if (isset($_POST['email'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
+  header('Location: admin.php');
 }
 
 if (isset($_POST['password'])) {
@@ -51,6 +52,7 @@ if (isset($_POST['password'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
     }
+    header('Location: admin.php');
   }
 
 
@@ -72,7 +74,10 @@ if (isset($_POST['bio'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
+  header('Location: admin.php');
 }
+
+
 
 // BILDUPPLADDNINGEN
 
@@ -140,8 +145,7 @@ $statement->execute();
 
 $testing = $statement->fetch(PDO::FETCH_ASSOC);
 
-
- ?>
+?>
 
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
@@ -159,7 +163,7 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 
 
 <h1>Ändra profil</h1>
-<form action="admin.php" method="post">
+<form action="edit-acc.php" method="post">
   <label for="email">Email</label>
   <input type="email" name="email">
   <br />

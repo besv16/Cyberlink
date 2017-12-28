@@ -13,66 +13,66 @@ $pdo = new PDO('sqlite:app/database/database.db');
 
 $authenticated = $_SESSION['authenticated'] ?? false;
 
-if (isset($_POST['email'])) {
-  if (empty($_POST['email'])) {
-  }
-  else {
-    $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
-    // TODO: Implement the database insert logic here.
-    $statement_insert = $pdo->prepare('UPDATE user SET email = :email WHERE userID = :userID');
-    if (!$statement_insert) {
-      die(var_dump($pdo->errorInfo()));
-    }
-    // bind param email
-    $statement_insert->bindParam(':email', $email, PDO::PARAM_STR);
-    // bind param userID
-    $statement_insert->bindParam(':userID', $userID, PDO::PARAM_INT);
-
-    $statement_insert->execute();
-    $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
-  }
-}
-
-if (isset($_POST['password'])) {
-  if (empty($_POST['password'])) {
-  }
-  else {
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    // TODO: Implement the database insert logic here.
-    $statement_insert = $pdo->prepare('UPDATE user SET password = :password WHERE userID = :userID');
-    if (!$statement_insert) {
-      die(var_dump($pdo->errorInfo()));
-    }
-    // bind param password
-    $statement_insert->bindParam(':password', $password, PDO::PARAM_STR);
-    // bind param userID
-    $statement_insert->bindParam(':userID', $userID, PDO::PARAM_INT);
-
-    $statement_insert->execute();
-    $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
-    }
-  }
-
-
-if (isset($_POST['bio'])) {
-  if (empty($_POST['bio'])) {
-  }
-  else {
-    $bio = filter_var($_POST['bio'], FILTER_SANITIZE_STRING);
-    // TODO: Implement the database insert logic here.
-    $statement_insert = $pdo->prepare('UPDATE user SET bio = :bio WHERE userID = :userID');
-    if (!$statement_insert) {
-      die(var_dump($pdo->errorInfo()));
-    }
-    // bind param bio
-    $statement_insert->bindParam(':bio', $bio, PDO::PARAM_STR);
-    // bind param userID
-    $statement_insert->bindParam(':userID', $userID, PDO::PARAM_INT);
-
-    $statement_insert->execute();
-    $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
-  }
-}
+// if (isset($_POST['email'])) {
+//   if (empty($_POST['email'])) {
+//   }
+//   else {
+//     $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
+//     // TODO: Implement the database insert logic here.
+//     $statement_insert = $pdo->prepare('UPDATE user SET email = :email WHERE userID = :userID');
+//     if (!$statement_insert) {
+//       die(var_dump($pdo->errorInfo()));
+//     }
+//     // bind param email
+//     $statement_insert->bindParam(':email', $email, PDO::PARAM_STR);
+//     // bind param userID
+//     $statement_insert->bindParam(':userID', $userID, PDO::PARAM_INT);
+//
+//     $statement_insert->execute();
+//     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
+//   }
+// }
+//
+// if (isset($_POST['password'])) {
+//   if (empty($_POST['password'])) {
+//   }
+//   else {
+//     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+//     // TODO: Implement the database insert logic here.
+//     $statement_insert = $pdo->prepare('UPDATE user SET password = :password WHERE userID = :userID');
+//     if (!$statement_insert) {
+//       die(var_dump($pdo->errorInfo()));
+//     }
+//     // bind param password
+//     $statement_insert->bindParam(':password', $password, PDO::PARAM_STR);
+//     // bind param userID
+//     $statement_insert->bindParam(':userID', $userID, PDO::PARAM_INT);
+//
+//     $statement_insert->execute();
+//     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
+//     }
+//   }
+//
+//
+// if (isset($_POST['bio'])) {
+//   if (empty($_POST['bio'])) {
+//   }
+//   else {
+//     $bio = filter_var($_POST['bio'], FILTER_SANITIZE_STRING);
+//     // TODO: Implement the database insert logic here.
+//     $statement_insert = $pdo->prepare('UPDATE user SET bio = :bio WHERE userID = :userID');
+//     if (!$statement_insert) {
+//       die(var_dump($pdo->errorInfo()));
+//     }
+//     // bind param bio
+//     $statement_insert->bindParam(':bio', $bio, PDO::PARAM_STR);
+//     // bind param userID
+//     $statement_insert->bindParam(':userID', $userID, PDO::PARAM_INT);
+//
+//     $statement_insert->execute();
+//     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
+//   }
+// }
 
 // BILDUPPLADDNINGEN
 
@@ -172,7 +172,7 @@ foreach ($links as $link) {
 
 ?>
 
-<h1>Ändra profil</h1>
+<!-- <h1>Ändra profil</h1>
 <form action="admin.php" method="post">
   <label for="email">Email</label>
   <input type="email" name="email">
@@ -189,7 +189,7 @@ foreach ($links as $link) {
   <label for="avatar">Choose a PNG image to upload</label>
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
-</form>
+</form> -->
 
 <!-- <h1>Lägg till en länk!</h1>
 <form action="app/links/store.php" method="post">
