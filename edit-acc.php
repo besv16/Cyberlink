@@ -31,7 +31,6 @@ if (isset($_POST['email'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
-  header('Location: admin.php');
 }
 
 if (isset($_POST['password'])) {
@@ -52,7 +51,6 @@ if (isset($_POST['password'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
     }
-    header('Location: admin.php');
   }
 
 
@@ -74,7 +72,6 @@ if (isset($_POST['bio'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
-  header('Location: admin.php');
 }
 
 
