@@ -20,7 +20,7 @@ $statement_1->execute();
 $img = $statement_1->fetch(PDO::FETCH_ASSOC);
 
 // HÄMTA ALLA LÄNKAR UR DATABASEN OCH VISA UPP...
-$statement = $pdo->prepare('SELECT * FROM link');
+$statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID');
 $statement->execute();
 
 
@@ -33,6 +33,7 @@ $statement->execute();
   <form action="feed.php" method="post">
     <input type="text" name="title" placeholder="Title">
     <input type="text" name="url" placeholder="URL">
+    <input type="text" name="description" placeholder="Description">
     <button type="submit">Share!</button>
   </form>
 </div>
@@ -44,9 +45,11 @@ foreach ($links as $link) {
   ?>
 
   <article class="post">
-    <div><?php echo $link{'title'}; ?></div>
-    <div><?php echo $link{'description'}; ?></div>
-    <div><?php echo $link{'url'}; ?></div>
+    <div class="top"><img class="feed-avatar" src="<?php echo $link{'avatar'}; ?>"></img>
+    <div class="title-url"><p><?php echo $link{'title'}; ?></p>
+    <p><?php echo $link{'url'}; ?></p></div></div>
+    <div><p><?php echo $link{'description'}; ?></p></div>
+    <div><p><?php echo $link{'email'}; ?></p></div>
   </article>
 
   <?php
