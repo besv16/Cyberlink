@@ -85,12 +85,9 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
 
-
-<div class="edit-container">
-  <a href="edit-acc.php">
+  <a class="edit-a" href="edit-acc.php">
     <img class="edit" src="/Cyberlink/media/img/edit.svg"></img>
   </a>
-</div>
 <div class="account">
   <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
   <div class="meta">
@@ -101,9 +98,11 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
   <p><?php echo $testing['bio']; ?></p>
 </div>
 
+<hr />
+
 <?php
 
-echo '<h1>Din/a länk/ar</h1>';
+echo '<h1>Your shared links</h1>';
 foreach ($links as $link) {
   ?>
   <div class="post">

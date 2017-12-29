@@ -75,7 +75,6 @@ if (isset($_POST['bio'])) {
 }
 
 
-
 // BILDUPPLADDNINGEN
 
 if (isset($_FILES['avatar'])) {
@@ -150,30 +149,24 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <div class="account">
   <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
   <div class="meta">
-    <p><?php echo $testing['email']; ?></p>
+    <form class="edit-acc" action="edit-acc.php" method="post">
+      <input type="email" name="email" value="<?php echo $testing['email']; ?>">
+      <input type="password" name="password" value="<?php echo $testing['password']; ?>">
+      <button type="submit">Save</button>
+    </form>
   </div>
 </div>
-<div class="bio">
-  <p><?php echo $testing['bio']; ?></p>
-</div>
 
-<h1>Ändra profil</h1>
-<form action="edit-acc.php" method="post">
-  <label for="email">Email</label>
-  <input type="email" name="email">
-  <br />
-  <label for="password">Lösenord</label>
-  <input type="password" name="password">
-  <br />
-  <label for="bio">Biografi</label>
-  <input type="text" name="bio">
-  <br />
-  <button type="submit">Spara</button>
-</form>
-<form action="admin.php" method="post" enctype="multipart/form-data">
-  <label for="avatar">Choose a PNG image to upload</label>
-  <input type="file" name="avatar" accept=".png" required>
-  <button type="submit">Upload</button>
-</form>
+  <form action="admin.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="avatar" accept=".png" required>
+    <button type="submit">Upload</button>
+  </form>
+
+<div class="bio">
+  <form class="edit-bio" action="edit-acc.php" method="post">
+    <input type="text" name="bio" value="<?php echo $testing['bio']; ?>">
+    <button type="submit">Save</button>
+  </form>
+</div>
 
 <?php require __DIR__.'/views/footer.php'; ?>

@@ -154,7 +154,7 @@ form input {
 /* feed.php */
 
 .share-container {
-  margin: 40px auto;
+  margin: 90px auto;
   width: 60%;
   display: flex;
   flex-direction: row;
@@ -214,14 +214,15 @@ img.feed-avatar {
 /* admin.php */
 
 .account {
-  margin: 40px auto;
+  margin: auto;
+  margin-top: 90px;
   width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
-.edit-container {
+.edit-a {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -230,7 +231,7 @@ img.feed-avatar {
 img.edit {
   width: 30px;
   border-radius: 0;
-  padding: 40px;
+  padding: 80px;
   position: absolute;
 }
 
@@ -244,6 +245,20 @@ img.edit {
 }
 
 .bio {
-  margin: 40px auto;
+  margin: 0 auto;
   width: 50%;
+}
+
+/* edit-acc.php */
+
+form.edit-acc input {
+  width: 300px;
+}
+
+form.edit-bio input {
+  width: 500px;
+  height: 200px;
+  display: block;
+  word-wrap: break-word !important;
+  white-space: normal !important;
 }
