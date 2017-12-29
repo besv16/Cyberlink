@@ -143,13 +143,13 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
     </form>
   </div>
 </div>
-<form action="admin.php" method="post" enctype="multipart/form-data">
+<form class="upload-avatar" action="admin.php" method="post" enctype="multipart/form-data">
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
 </form>
 <div class="bio">
   <form class="edit-bio" action="edit-acc.php" method="post">
-    <input type="text" name="bio" value="<?php echo $testing['bio']; ?>">
+    <textarea name="bio"><?php echo $testing['bio']; ?></textarea>
     <button type="submit">Save</button>
   </form>
 </div>

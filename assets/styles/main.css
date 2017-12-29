@@ -150,7 +150,7 @@ form input {
 
 .share-container {
   margin: 90px auto;
-  width: 60%;
+  width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -212,7 +212,7 @@ img.feed-avatar {
   margin: auto;
   margin-top: 90px;
   margin-bottom: 100px;
-  width: 60%;
+  width: 600px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -242,12 +242,20 @@ img.edit {
 
 .bio {
   margin: 0 auto;
-  width: 50%;
+  width: 520px;
+}
+
+.bio p {
+  font-size: 14px;
+  letter-spacing: 1.3px;
+  line-height: 25px;
 }
 
 .link-heading {
   margin: auto;
+  width: 500px;
   margin-top: 100px;
+  margin-bottom: 40px;
 }
 
 
@@ -266,10 +274,31 @@ form.edit-acc input {
   height: 40px;
 }
 
-form.edit-bio input {
+form.edit-bio * {
   width: 500px;
-  height: 200px;
-  display: block;
-  word-wrap: break-word !important;
-  white-space: normal !important;
+  margin-bottom: 40px;
+}
+
+form.edit-bio textarea {
+  font-family: 'Ubuntu', serif;
+  font-size: 14px;
+  letter-spacing: 1.3px;
+  width: 480px;
+  height: 320px;
+  background-color: #fafafa;
+  border: 1px solid #efefef;
+  padding: 20px;
+}
+
+form.upload-avatar {
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+form.upload-avatar * {
+  height: 30px;
 }
