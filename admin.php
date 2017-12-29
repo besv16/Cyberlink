@@ -86,6 +86,11 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 <?php require __DIR__.'/views/navigation.php'; ?>
 
 
+<div class="edit-container">
+  <a href="edit-acc.php">
+    <img class="edit" src="/Cyberlink/media/img/edit.svg"></img>
+  </a>
+</div>
 <div class="account">
   <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
   <div class="meta">
@@ -111,7 +116,6 @@ foreach ($links as $link) {
 
 ?>
 
-<a href="edit-acc.php">ändra din profil</a>
 <a href="edit-links.php">ändra dina länkar</a>
 
 <?php require __DIR__.'/views/footer.php'; ?>
