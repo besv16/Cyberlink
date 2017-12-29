@@ -53,7 +53,6 @@ if (isset($_POST['password'])) {
     }
   }
 
-
 if (isset($_POST['bio'])) {
   if (empty($_POST['bio'])) {
   }
@@ -73,7 +72,6 @@ if (isset($_POST['bio'])) {
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
 }
-
 
 // BILDUPPLADDNINGEN
 
@@ -98,34 +96,23 @@ if (isset($_FILES['avatar'])) {
   $statement_insert_avatar->bindParam(':userID', $userID, PDO::PARAM_INT);
   $statement_insert_avatar->execute();
   $avatar3 = $statement_insert_avatar->fetch(PDO::FETCH_ASSOC);
-
 }
-
 
 // HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
 
 $statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
-
 $image = $statement->fetch(PDO::FETCH_ASSOC);
-
-
-
 
 // HÄMTA LÄNK/AR UR DATABASEN OCH VISA UPP...
 $pdo = new PDO('sqlite:app/database/database.db');
 $statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
-
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
-
-
 $pdo = new PDO('sqlite:app/database/database.db');
-
 
 // HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
 $statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');

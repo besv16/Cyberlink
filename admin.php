@@ -99,10 +99,15 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
 </div>
 
 <hr />
+<a class="edit-a" href="edit-links.php">
+  <img class="edit" src="/Cyberlink/media/img/edit.svg"></img>
+</a>
+<div class="link-heading">
+  <h1>Your shared links</h1>
+</div>
 
 <?php
 
-echo '<h1>Your shared links</h1>';
 foreach ($links as $link) {
   ?>
   <div class="post">
@@ -113,8 +118,4 @@ foreach ($links as $link) {
   <?php
 }
 
-?>
-
-<a href="edit-links.php">ändra dina länkar</a>
-
-<?php require __DIR__.'/views/footer.php'; ?>
+require __DIR__.'/views/footer.php'; ?>
