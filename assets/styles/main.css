@@ -302,3 +302,32 @@ form.upload-avatar {
 form.upload-avatar * {
   height: 30px;
 }
+
+/* edit-links.php */
+
+form.edit-links {
+  align-items: initial;
+}
+
+form.edit-links * {
+  width: 300px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+form.edit-links button {
+  width: 310px;
+}
+
+.delete-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+input.image {
+  width: 30px;
+  border-radius: 0;
+  border: none !important;
+  background-color: unset !important;
+}

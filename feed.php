@@ -39,6 +39,8 @@ $statement->execute();
 
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
+
 foreach ($links as $link) {
   ?>
   <article class="post">
@@ -47,6 +49,21 @@ foreach ($links as $link) {
     <p><?php echo $link{'url'}; ?></p></div></div>
     <div class="description"><p><?php echo $link{'description'}; ?></p></div>
     <div><p><?php echo $link{'email'}; ?></p></div>
+    <p class="upp">Rösta upp</p>
+    <p class="ned">Rösta ned</p>
+
+    <?php
+    // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
+    $linkID = $link{'linkID'};
+    $statement_2 = $pdo->prepare('SELECT score FROM vote WHERE link = :linkID');
+    // bind param password
+    $statement_2->bindParam(':linkID', $linkID, PDO::PARAM_STR);
+    $statement_2->execute();
+    $vote = $statement_2->fetch(PDO::FETCH_ASSOC);
+    echo $vote{'score'};
+    ?>
+
+
   </article>
   <?php
 }
