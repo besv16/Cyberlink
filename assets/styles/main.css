@@ -74,6 +74,17 @@ button {
   height: 40px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  height: 50px;
+  padding-left: 8px;
+  background-color: #eee;
+}
 
 .footer {
   width: 100%;
@@ -124,22 +135,6 @@ button {
   font-family: 'Playfair Display';
   font-size: 50px;
   text-align: center;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form * {
-  margin-top: 20%;
-}
-
-form input {
-  height: 50px;
-  padding-left: 8px;
-  background-color: #eee;
 }
 
 .login-signup a {
@@ -251,8 +246,17 @@ img.edit {
 
 /* edit-acc.php */
 
+form.edit-acc {
+  align-items: initial;
+}
+
+form.edit-acc * {
+  margin-top: 5px;
+}
+
 form.edit-acc input {
   width: 300px;
+  height: 40px;
 }
 
 form.edit-bio input {
