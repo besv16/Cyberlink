@@ -87,7 +87,30 @@ if (isset($_POST['url'])) {
 }
 
 
+// TA BORT EN LÄNK
 
+if (isset($_POST['ID-delete'])) {
+  echo " POST['ID-delete'] är satt!";
+  if (empty($_POST['ID-delete'])) {
+  }
+  else {
+    // kopplar upp mot databasen
+    $pdo = new PDO('sqlite:app/database/database.db');
+
+    $linkID = filter_var($_POST['ID-delete'], FILTER_SANITIZE_STRING);
+    echo $linkID;
+    // TODO: Implement the database insert logic here.
+    $statement_delete = $pdo->prepare('DELETE FROM link WHERE linkID = :linkID');
+    if (!$statement_delete) {
+      die(var_dump($pdo->errorInfo()));
+    }
+
+    // bind param linkID
+    $statement_delete->bindParam(':linkID', $linkID, PDO::PARAM_INT);
+
+    $statement_delete->execute();
+  }
+}
 
 
 // HÄMTA LÄNK/AR UR DATABASEN OCH VISA UPP...
@@ -99,29 +122,6 @@ $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
-
-
-
-// TA BORT EN LÄNK
-
-// if (isset($_POST['image'])) {
-//   if (empty($_POST['image'])) {
-//   }
-//   else {
-//     $image = filter_var($_POST['image'], FILTER_SANITIZE_STRING);
-//     // TODO: Implement the database insert logic here.
-//     $statement_delete = $pdo->prepare('DELETE FROM link WHERE linkID = :linkID');
-//     if (!$statement_delete) {
-//       die(var_dump($pdo->errorInfo()));
-//     }
-//
-//     // bind param linkID
-//     $statement_delete->bindParam(':linkID', $linkID, PDO::PARAM_INT);
-//
-//     $statement_delete->execute();
-//   }
-// }
 
 ?>
 
@@ -135,13 +135,13 @@ foreach ($links as $link) {
   ?>
   <div class="post">
     <div class="delete-links">
-      <!-- <img class="delete" src="/Cyberlink/media/img/delete.svg"></img> -->
-      <!-- <form class="delete-links" action="edit-links.php" method="post">
+      <form class="delete-links" action="edit-links.php" method="post">
+        <input type="text" name="ID-delete" class="hidden" value="<?php echo $linkID; ?>">
         <input class="image" name="image" type="image" alt="Delete" src="/Cyberlink/media/img/delete.svg">
-      </form> -->
+      </form>
     </div>
     <form class="edit-links" action="edit-links.php" method="post">
-      <input type="text" name="ID" value="<?php echo $linkID; ?>">
+      <input type="text" name="ID" class="hidden" value="<?php echo $linkID; ?>">
       <input type="text" name="title" placeholder="<?php echo $link['title']; ?>">
       <input type="text" name="description" placeholder="<?php echo $link['description']; ?>">
       <input type="text" name="url" placeholder="<?php echo $link['url']; ?>">
