@@ -40,7 +40,6 @@ $statement->execute();
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-
 foreach ($links as $link) {
   ?>
   <article class="post">
@@ -49,9 +48,8 @@ foreach ($links as $link) {
     <p><?php echo $link{'url'}; ?></p></div></div>
     <div class="description"><p><?php echo $link{'description'}; ?></p></div>
     <div><p><?php echo $link{'email'}; ?></p></div>
-    <p class="upp">Rösta upp</p>
-    <p class="ned">Rösta ned</p>
-
+    <p class="up">Rösta upp</p>
+    <p class="down">Rösta ned</p>
     <?php
     // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
     $linkID = $link{'linkID'};
@@ -68,5 +66,7 @@ foreach ($links as $link) {
   <?php
 }
 ?>
+
+<script src="/Cyberlink/assets/scripts/script.js" type="text/javascript"></script>
 
 <?php require __DIR__.'/views/footer.php'; ?>
