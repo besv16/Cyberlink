@@ -50,6 +50,9 @@ foreach ($links as $link) {
     <div><p><?php echo $link{'email'}; ?></p></div>
     <p class="up">Rösta upp</p>
     <p class="down">Rösta ned</p>
+
+
+
     <?php
     // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
     $linkID = $link{'linkID'};
@@ -58,15 +61,39 @@ foreach ($links as $link) {
     $statement_2->bindParam(':linkID', $linkID, PDO::PARAM_STR);
     $statement_2->execute();
     $vote = $statement_2->fetch(PDO::FETCH_ASSOC);
-    echo $vote{'score'};
-    ?>
+    $vote = $vote{'score'};
+    echo $vote;
 
+    ?>
+    <script type="text/javascript">
+
+    'use strict';
+
+    var score = <?php echo $vote?>;
+    console.log(score);
+
+    var up = document.querySelectorAll("p.up");
+    var down = document.querySelectorAll("p.down");
+
+    up.forEach(function(up) {
+      up.addEventListener("click", function(event) {
+        console.log("clicked up!");
+        console.log(++score);
+      })});
+
+    down.forEach(function(down) {
+      down.addEventListener("click", function(event) {
+        console.log("clicked down!");
+        console.log(--score);
+      })});
+
+    </script>
 
   </article>
+
   <?php
 }
-?>
 
-<script src="/Cyberlink/assets/scripts/script.js" type="text/javascript"></script>
+?>
 
 <?php require __DIR__.'/views/footer.php'; ?>

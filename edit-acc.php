@@ -138,7 +138,7 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
   <div class="meta">
     <form class="edit-acc" action="edit-acc.php" method="post">
       <input type="email" name="email" value="<?php echo $testing['email']; ?>">
-      <input type="password" name="password" value="<?php echo $testing['password']; ?>">
+      <input type="text" name="password" placeholder="Nytt lösenord">
       <button type="submit">Save</button>
     </form>
   </div>
