@@ -62,37 +62,56 @@ foreach ($links as $link) {
     $statement_2->execute();
     $vote = $statement_2->fetch(PDO::FETCH_ASSOC);
     $vote = $vote{'score'};
-    echo $vote;
+    echo "variabel vote = " . $vote;
 
     ?>
-    <script type="text/javascript">
-
-    'use strict';
-
-    var score = <?php echo $vote?>;
-    console.log(score);
-
-    var up = document.querySelectorAll("p.up");
-    var down = document.querySelectorAll("p.down");
-
-    up.forEach(function(up) {
-      up.addEventListener("click", function(event) {
-        console.log("clicked up!");
-        console.log(++score);
-      })});
-
-    down.forEach(function(down) {
-      down.addEventListener("click", function(event) {
-        console.log("clicked down!");
-        console.log(--score);
-      })});
-
-    </script>
 
   </article>
+  <script type="text/javascript">
 
+  'use strict';
+
+  console.log('score on LINKID ' + <?php echo $linkID; ?> + ' : ' + <?php echo $vote; ?>);
+
+  var up = document.querySelectorAll("p.up");
+  var down = document.querySelectorAll("p.down");
+
+
+    up.forEach(function(up) {
+    up.addEventListener("click", function(event) {
+      console.log(<?php echo $linkID; ?>);
+      if (<?php echo $linkID; ?> == 1) {
+        console.log("hi");
+      }
+      console.log('score after upvote on link with ID ' + <?php echo $linkID; ?> + ': ' + <?php echo ++$vote; ?>);
+    })});
+
+    down.forEach(function(down) {
+    down.addEventListener("click", function(event) {
+      console.log('score after downvote on link with ID ' + <?php echo $linkID; ?> + ': ' + <?php echo --$vote; ?>);
+    })});
+
+
+  </script>
   <?php
+
+
+
 }
+
+?>
+
+
+
+<?php
+
+// HÄMTA ANVÄNDARBILDEN UR DATABASEN OCH VISA UPP...
+//$statement_vote = $pdo->prepare('UPDATE vote SET score = ":vote" WHERE link = ":linkID"');
+// bind param password
+//$statement_vote->bindParam(':vote', $vote, PDO::PARAM_STR);
+//$statement_vote->bindParam(':linkID', $linkID, PDO::PARAM_STR);
+//$statement_vote->execute();
+//$new_score = $statement_vote->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
