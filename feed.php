@@ -48,8 +48,6 @@ foreach ($links as $link) {
     <p><?php echo $link{'url'}; ?></p></div></div>
     <div class="description"><p><?php echo $link{'description'}; ?></p></div>
     <div><p><?php echo $link{'email'}; ?></p></div>
-    <p class="up">Rösta upp</p>
-    <p class="down">Rösta ned</p>
 
     <?php
 
@@ -65,36 +63,37 @@ foreach ($links as $link) {
 
     ?>
 
+    <p class="up" data-vote="<?php echo $vote ?>" data-link-id="<?php echo $link['linkID'] ?>">Rösta upp</p>
+    <p class="down">Rösta ned</p>
+
   </article>
 
-  <script type="text/javascript">
-
-  'use strict';
-
-  var newarray = [];
-
-  function upVote (score, linkID) {
-    console.log("score on link ID: " + linkID + " = " + ++score);
-  }
-
-  var up = document.querySelectorAll("p.up");
-  var down = document.querySelectorAll("p.down");
-
-  up.forEach(function(up) {
-  up.addEventListener("click", function(event) {
-    newarray.push(up);
-    if (newarray.length == 1) {
-      upVote(<?php echo $vote; ?>, <?php echo $linkID; ?>);
-    }
-    newarray.length = 0;
-    console.log(newarray);
-  })});
-
-
-  </script>
   <?php
 
 }
+?>
+
+<script type="text/javascript">
+
+'use strict';
+
+function upVote (score, linkID, up) {
+  console.log("score on link ID: " + linkID + " = " + ++score);
+  up.dataset.vote = score;
+  console.log(up);
+}
+
+var upButtons = document.querySelectorAll("p.up");
+var downButtons = document.querySelectorAll("p.down");
+
+upButtons.forEach(function(up) {
+  console.log(up);
+  up.addEventListener("click", function(event) {
+    upVote(event.target.dataset.vote, event.target.dataset.linkId, up);
+  })
+});
+
+</script>
 
 ?>
 
