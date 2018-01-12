@@ -43,9 +43,10 @@ foreach ($links as $link) {
   ?>
   <article class="post">
     <div class="top"><img class="feed-avatar" src="<?php echo $link{'avatar'}; ?>"></img>
-    <p><?php echo $link{'linkID'}; ?></p>
-    <div class="title-url"><p><?php echo $link{'title'}; ?></p>
-    <p><?php echo $link{'url'}; ?></p></div></div>
+      <p><?php echo $link{'linkID'}; ?></p>
+      <div class="title-url"><p><?php echo $link{'title'}; ?></p>
+      <p><a href="<?php echo $link{'url'}; ?>"><?php echo $link{'url'}; ?></a></p></div>
+    </div>
     <div class="description"><p><?php echo $link{'description'}; ?></p></div>
     <div><p><?php echo $link{'email'}; ?></p></div>
 
@@ -63,20 +64,25 @@ foreach ($links as $link) {
 
     ?>
 
-    <p class="up" data-vote="<?php echo $vote ?>" data-link-id="<?php echo $link['linkID'] ?>">Rösta upp</p>
-    <p class="down" data-vote="<?php echo $vote ?>" data-link-id="<?php echo $link['linkID'] ?>">Rösta ned</p>
+    <div class="vote-links">
+      <form class="up-vote" action="vote-links.php" method="post">
+        <input type="text" name="ID-delete" class="hidden" value="<?php echo $linkID; ?>">
+        <input class="image" name="image" type="image" alt="Delete" src="/Cyberlink/media/img/delete.svg">
+      </form>
+      <form class="down-vote" action="vote-links.php" method="post">
+        <input type="text" name="ID-delete" class="hidden" value="<?php echo $linkID; ?>">
+        <input class="image" name="image" type="image" alt="Delete" src="/Cyberlink/media/img/delete.svg">
+      </form>
+    </div>
+
+    <!-- <p class="up" data-vote="<?php //echo $vote ?>" data-link-id="<?php //echo $link['linkID'] ?>">Rösta upp</p>
+    <p class="down" data-vote="<?php //echo $vote ?>" data-link-id="<?php //echo $link['linkID'] ?>">Rösta ned</p> -->
 
   </article>
 
   <?php
 
 }
-
-?>
-
-<script type="text/javascript" src="assets/scripts/script.js"></script>
-
-<?php
 
 // //POSTA DEN NYA SCORE'n I DATABASEN...
 // $statement_vote = $pdo->prepare('UPDATE vote SET score = ":vote" WHERE link = ":linkID"');

@@ -90,13 +90,11 @@ if (isset($_POST['url'])) {
 // TA BORT EN LÄNK
 
 if (isset($_POST['ID-delete'])) {
-  echo " POST['ID-delete'] är satt!";
   if (empty($_POST['ID-delete'])) {
   }
   else {
     // kopplar upp mot databasen
     $pdo = new PDO('sqlite:app/database/database.db');
-
     $linkID = filter_var($_POST['ID-delete'], FILTER_SANITIZE_STRING);
     echo $linkID;
     // TODO: Implement the database insert logic here.
@@ -119,9 +117,6 @@ $statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 
 ?>
 
