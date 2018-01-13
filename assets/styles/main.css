@@ -208,6 +208,11 @@ img.feed-avatar {
 .title-url a {
   text-decoration: none;
   color: #666;
+  letter-spacing: 0;
+}
+
+.title-url h4 {
+  font-size: 18px;
 }
 
 .description {
@@ -224,6 +229,7 @@ img.feed-avatar {
 .vote-links {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -231,8 +237,17 @@ form.up-vote input, form.down-vote input {
   padding: 0;
 }
 
+.score {
+  color: #666;
+}
+
 .right {
-  width: 400px;
+  width: 410px;
+}
+
+.email {
+  font-size: 12px;
+  color: #999;
 }
 
 /* admin.php */

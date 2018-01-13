@@ -19,7 +19,7 @@ $statement_1->execute();
 $img = $statement_1->fetch(PDO::FETCH_ASSOC);
 
 // HÄMTA ALLA LÄNKAR UR DATABASEN OCH VISA UPP...
-$statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID');
+$statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID ORDER BY linkID DESC');
 $statement->execute();
 
 ?>
@@ -94,7 +94,7 @@ foreach ($links as $link) {
         <input type="text" class="hidden" name="up-vote" value="<?php echo $vote+1; ?>">
         <input class="image" name="image" type="image" alt="Vote up" src="/Cyberlink/media/img/up-arrow.svg">
       </form>
-      <p><?php echo $vote;?></p>
+      <p class="score"><?php echo $vote;?></p>
       <form class="down-vote" action="/Cyberlink/app/auth/vote.php" method="post">
         <input type="text" class="hidden" name="linkID" value="<?php echo $linkID; ?>">
         <input type="text" class="hidden" name="down-vote" value="<?php echo $vote-1; ?>">
@@ -103,11 +103,11 @@ foreach ($links as $link) {
     </div>
     <div class="right">
       <div class="top"><img class="feed-avatar" src="<?php echo $link{'avatar'}; ?>"></img>
-        <div class="title-url"><p><?php echo $link{'title'}; ?></p>
+        <div class="title-url"><h4><?php echo $link{'title'}; ?></h4>
         <p><a href="<?php echo $link{'url'}; ?>"><?php echo $link{'url'}; ?></a></p></div>
       </div>
       <div class="description"><p><?php echo $link{'description'}; ?></p></div>
-      <div class="email"><p><?php echo $link{'email'}; ?></p></div>
+      <div class="email"><p>author: <?php echo $link{'email'}; ?></p></div>
     </div>
   </div>
 

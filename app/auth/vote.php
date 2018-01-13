@@ -6,8 +6,6 @@ if (isset($_POST['linkID'], ($_POST['up-vote']))) {
   $linkID = $_POST['linkID'];
   $newUpScore = $_POST['up-vote'];
 
-  echo "LINK ID: " . $linkID . ", new score: " . $newUpScore;
-
   $pdo = new PDO('sqlite:../database/database.db');
 
   // TODO: Implement the database insert logic here.
@@ -32,10 +30,41 @@ if (isset($_POST['linkID'], ($_POST['up-vote']))) {
 
 }
 
-if (isset($_POST['down-vote'])) {
+
+
+if (isset($_POST['linkID'], ($_POST['down-vote']))) {
+
+  if ($_POST['down-vote'] == -1) {
+    $_POST['down-vote'] = 0;
+  }
+  $linkID = $_POST['linkID'];
   $newDownScore = $_POST['down-vote'];
-  echo "Score: " . $newDownScore;
+
+  $pdo = new PDO('sqlite:../database/database.db');
+
+  // TODO: Implement the database insert logic here.
+  $statement_downVote = $pdo->prepare('UPDATE vote SET score = :newDownScore, link = :linkID WHERE link = :linkID');
+
+  if (!$statement_downVote) {
+    die(var_dump($pdo->errorInfo()));
+  }
+
+
+  // bind param linkID
+  $statement_downVote->bindParam(':linkID', $linkID, PDO::PARAM_INT);
+  // bind param newDownScore
+  $statement_downVote->bindParam(':newDownScore', $newDownScore, PDO::PARAM_INT);
+
+  $statement_downVote->execute();
+
+  $result = $statement_downVote->fetch(PDO::FETCH_ASSOC);
+
+
+  header('Location: /Cyberlink/feed.php');
+
 }
+
+
 
 
 ?>

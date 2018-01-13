@@ -72,7 +72,6 @@ if (isset($_POST['url'])) {
 
     $url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
     $linkID = filter_var($_POST['ID'], FILTER_SANITIZE_STRING);
-    // $linkID = $link['linkID'];
     // TODO: Implement the database insert logic here.
     $statement_3 = $pdo->prepare('UPDATE link SET url = :url WHERE linkID = :linkID');
     if (!$statement_3) {
