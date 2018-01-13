@@ -63,14 +63,14 @@ foreach ($links as $link) {
 
       $vote = 0;
 
-      $statementTESTARLITEGRANN = $pdo->prepare('INSERT INTO vote (score, link) VALUES (:vote, :linkID)');
+      $statement_insert_vote = $pdo->prepare('INSERT INTO vote (score, link) VALUES (:vote, :linkID)');
       // bind param LINKID
-      $statementTESTARLITEGRANN->bindParam(':linkID', $linkID, PDO::PARAM_INT);
+      $statement_insert_vote->bindParam(':linkID', $linkID, PDO::PARAM_INT);
       // bind param SCORE
-      $statementTESTARLITEGRANN->bindParam(':vote', $vote, PDO::PARAM_INT);
+      $statement_insert_vote->bindParam(':vote', $vote, PDO::PARAM_INT);
 
-      $statementTESTARLITEGRANN->execute();
-      $vote = $statementTESTARLITEGRANN->fetch(PDO::FETCH_ASSOC);
+      $statement_insert_vote->execute();
+      $vote = $statement_insert_vote->fetch(PDO::FETCH_ASSOC);
 
 
       // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
