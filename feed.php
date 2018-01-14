@@ -7,16 +7,11 @@ session_start();
 $authenticated = $_SESSION['authenticated'] ?? false;
 $userID = $_SESSION['userID'] ?? '';
 
+require __DIR__.'/app/users/store.php';
 require __DIR__.'/views/header.php';
+require __DIR__.'/views/navigation.php';
 
 $pdo = new PDO('sqlite:app/database/database.db');
-
-// HÄMTA ANVÄNDARBILDEN UR DATABASEN OCH VISA UPP...
-$statement_1 = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
-// bind param userID
-$statement_1->bindParam(':userID', $userID, PDO::PARAM_INT);
-$statement_1->execute();
-$img = $statement_1->fetch(PDO::FETCH_ASSOC);
 
 // HÄMTA ALLA LÄNKAR UR DATABASEN OCH VISA UPP...
 $statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID ORDER BY linkID DESC');
@@ -24,9 +19,8 @@ $statement->execute();
 
 ?>
 
-<?php require __DIR__.'/views/navigation.php'; ?>
 <div class="share-container">
-  <img class="profile-avatar" src="<?php echo $img['avatar']; ?>"></img>
+  <img class="profile-avatar" src="<?php echo $avatar['avatar']; ?>"></img>
   <form action="app/links/store.php" method="post">
     <input type="text" name="title" placeholder="Title">
     <input type="text" name="url" placeholder="URL">
