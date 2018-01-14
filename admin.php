@@ -13,33 +13,6 @@ $pdo = new PDO('sqlite:app/database/database.db');
 
 $authenticated = $_SESSION['authenticated'] ?? false;
 
-// BILDUPPLADDNINGEN
-
-if (isset($_FILES['avatar'])) {
-
-  $avatar = $_FILES['avatar'];
-  $avatar2 = 'media\img\\'.$avatar['name'];
-  $destination = sprintf('%s\%s', __DIR__.'\media\img', $avatar['name']);
-  move_uploaded_file($avatar['tmp_name'], $destination);
-
-
-  // TODO: Implement the database update (inserting img url) logic here.
-
-  $statement_insert_avatar = $pdo->prepare('UPDATE user SET avatar = :avatar WHERE userID = :userID');
-
-  if (!$statement_insert_avatar) {
-    die(var_dump($pdo->errorInfo()));
-  }
-
-  // bind param email
-  $statement_insert_avatar->bindParam(':avatar', $avatar2, PDO::PARAM_STR);// bind param userID
-  $statement_insert_avatar->bindParam(':userID', $userID, PDO::PARAM_INT);
-  $statement_insert_avatar->execute();
-  $avatar3 = $statement_insert_avatar->fetch(PDO::FETCH_ASSOC);
-
-}
-
-
 // HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
 
 $statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');

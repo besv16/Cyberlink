@@ -7,7 +7,6 @@ session_start();
 // sätter en sessionsvariabel vid namn userID som har värdet av den inloggades ID-nummer
 $userID = $_SESSION['userID'];
 
-// require __DIR__.'/../autoload.php';
 // In this file we store/insert new posts in the database.
 
 $pdo = new PDO('sqlite:../database/database.db');
@@ -38,5 +37,4 @@ if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
 
     header('Location: /Cyberlink/');
 
-    // redirect('/Cyberlink/index.php');
 }

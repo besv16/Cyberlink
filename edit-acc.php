@@ -143,7 +143,7 @@ $testing = $statement->fetch(PDO::FETCH_ASSOC);
     </form>
   </div>
 </div>
-<form class="upload-avatar" action="admin.php" method="post" enctype="multipart/form-data">
+<form class="upload-avatar" action="edit-acc.php" method="post" enctype="multipart/form-data">
   <input type="file" name="avatar" accept=".png" required>
   <button type="submit">Upload</button>
 </form>

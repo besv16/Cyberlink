@@ -42,10 +42,9 @@ $links = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($links as $link) {
   ?>
+
   <article class="post">
-
     <div class="meta-wrapper">
-
 
     <?php
 
@@ -72,7 +71,6 @@ foreach ($links as $link) {
       $statement_insert_vote->execute();
       $vote = $statement_insert_vote->fetch(PDO::FETCH_ASSOC);
 
-
       // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
       $linkID = $link{'linkID'};
       $statement_2 = $pdo->prepare('SELECT score FROM vote WHERE link = :linkID');
@@ -83,8 +81,6 @@ foreach ($links as $link) {
       $vote = $vote{'score'};
 
     }
-
-
 
     ?>
 

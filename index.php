@@ -1,10 +1,7 @@
 <?php
 
 declare(strict_types=1);
-
 session_start();
-$message = $_SESSION['message'] ?? '';
-unset($_SESSION['message']);
 $userID = $_SESSION['userID'] ?? '';
 $authenticated = $_SESSION['authenticated'] ?? false;
 
@@ -22,11 +19,11 @@ $authenticated = $_SESSION['authenticated'] ?? false;
       <input type="password" name="password" placeholder="Password">
       <button type="submit">Sign in</button>
     </form>
-    <p>Don't have an account? - Then <a href="app/auth/register.php"> sign up </a>for one!</p>
+    <p>Don't have an account? - Then <a href="registration.php"> sign up </a>for one!</p>
   </div>
 </div>
 <!-- ifall inloggning lyckades (authenticated = true): skicka användaren till feed.php -->
 <?php if ($authenticated): ?>
   <?php header('Location: feed.php'); ?>
 <?php endif; ?>
-  <?php require __DIR__.'/views/footer.php'; ?>
+<?php require __DIR__.'/views/footer.php'; ?>
