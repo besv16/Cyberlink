@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 // från formuläret:
-
 if (isset($_POST['title'])) {
   if (empty($_POST['title'])) {
   }

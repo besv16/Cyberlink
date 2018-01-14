@@ -8,12 +8,11 @@ session_start();
 // sätter en sessionsvariabel vid namn userID som har värdet av den inloggades ID-nummer
 $userID = $_SESSION['userID'];
 
-
 $authenticated = $_SESSION['authenticated'] ?? false;
 
 require __DIR__.'/views/header.php';
-require __DIR__.'/app/auth/edit-links.php';
 require __DIR__.'/views/navigation.php';
+require __DIR__.'/app/auth/edit-links.php';
 
 foreach ($links as $link) {
   $linkID = $link['linkID'];
