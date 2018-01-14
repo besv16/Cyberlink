@@ -1,13 +1,16 @@
 <?php
 
 declare(strict_types=1);
+
 session_start();
 $userID = $_SESSION['userID'] ?? '';
 $authenticated = $_SESSION['authenticated'] ?? false;
 
+require __DIR__.'/views/header.php';
+require __DIR__.'/views/navigation.php';
+
 ?>
-<?php require __DIR__.'/views/header.php'; ?>
-<?php require __DIR__.'/views/navigation.php'; ?>
+
 <div class="landing-page">
   <div class="img-demo">
     <img src="media/img/demo-index.svg"></img>
@@ -22,6 +25,7 @@ $authenticated = $_SESSION['authenticated'] ?? false;
     <p>Don't have an account? - Then <a href="registration.php"> sign up </a>for one!</p>
   </div>
 </div>
+
 <!-- ifall inloggning lyckades (authenticated = true): skicka användaren till feed.php -->
 <?php if ($authenticated): ?>
   <?php header('Location: feed.php'); ?>

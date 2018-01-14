@@ -3,9 +3,14 @@
 declare(strict_types=1);
 
 // In this file we store/insert new posts in the database.
-
 if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
-    $pdo = new PDO('sqlite:../database/database.db');
+
+  session_start();
+  $authenticated = $_SESSION['authenticated'] ?? false;
+  $userID = $_SESSION['userID'];
+
+  $pdo = new PDO('sqlite:../database/database.db');
+
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
     $url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
@@ -27,11 +32,9 @@ if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
     $statement_insert->bindParam(':user', $userID, PDO::PARAM_STR);
     $statement_insert->execute();
 
-    header('Location: /Cyberlink/');
+   header('Location: /Cyberlink/');
 
 }
-
-$pdo = new PDO('sqlite:app/database/database.db');
 
 // HÄMTA ALLA LÄNKAR UR DATABASEN OCH VISA UPP...
 $statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID ORDER BY linkID DESC');

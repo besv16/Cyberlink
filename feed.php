@@ -3,14 +3,13 @@
 declare(strict_types=1);
 
 session_start();
-
-$userID = $_SESSION['userID'];
 $authenticated = $_SESSION['authenticated'] ?? false;
+$userID = $_SESSION['userID'];
 
-require __DIR__.'/app/users/store.php';
-require __DIR__.'/app/links/store.php';
 require __DIR__.'/views/header.php';
 require __DIR__.'/views/navigation.php';
+require __DIR__.'/app/users/store.php';
+require __DIR__.'/app/links/store.php';
 
 ?>
 
@@ -36,9 +35,7 @@ foreach ($links as $link) {
 
     <?php
 
-    // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
     $linkID = $link{'linkID'};
-
     require __DIR__.'/app/votes/store.php';
 
     ?>
