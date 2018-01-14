@@ -11,7 +11,9 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 
 require __DIR__.'/app/users/store.php';
 require __DIR__.'/views/header.php';
-require __DIR__.'/views/navigation.php'; ?>
+require __DIR__.'/views/navigation.php';
+
+?>
 
 <a class="edit-a" href="edit-acc.php">
   <img class="edit" src="/Cyberlink/media/img/edit.svg"></img>

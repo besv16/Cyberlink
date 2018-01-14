@@ -1,19 +1,11 @@
 <?php
+
 declare(strict_types=1);
-
-// startar session
-session_start();
-
-// sätter en sessionsvariabel vid namn userID som har värdet av den inloggades ID-nummer
-$userID = $_SESSION['userID'];
 
 // In this file we store/insert new posts in the database.
 
-$pdo = new PDO('sqlite:../database/database.db');
-
-echo $userID;
-
 if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
+    $pdo = new PDO('sqlite:../database/database.db');
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
     $url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
@@ -38,3 +30,11 @@ if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
     header('Location: /Cyberlink/');
 
 }
+
+$pdo = new PDO('sqlite:app/database/database.db');
+
+// HÄMTA ALLA LÄNKAR UR DATABASEN OCH VISA UPP...
+$statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID ORDER BY linkID DESC');
+$statement->execute();
+
+$links = $statement->fetchAll(PDO::FETCH_ASSOC);

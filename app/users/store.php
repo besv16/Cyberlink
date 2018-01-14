@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // kopplar upp mot databasen
 $pdo = new PDO('sqlite:app/database/database.db');
 
@@ -9,10 +11,9 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 $statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
-$avatar = $statement->fetch(PDO::FETCH_ASSOC);
+$image = $statement->fetch(PDO::FETCH_ASSOC);
 
 // HÄMTA LÄNK/AR UR DATABASEN OCH VISA UPP...
-$pdo = new PDO('sqlite:app/database/database.db');
 $statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();

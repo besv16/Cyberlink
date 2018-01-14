@@ -4,23 +4,18 @@ declare(strict_types=1);
 
 session_start();
 
+$userID = $_SESSION['userID'];
 $authenticated = $_SESSION['authenticated'] ?? false;
-$userID = $_SESSION['userID'] ?? '';
 
 require __DIR__.'/app/users/store.php';
+require __DIR__.'/app/links/store.php';
 require __DIR__.'/views/header.php';
 require __DIR__.'/views/navigation.php';
-
-$pdo = new PDO('sqlite:app/database/database.db');
-
-// HÄMTA ALLA LÄNKAR UR DATABASEN OCH VISA UPP...
-$statement = $pdo->prepare('SELECT * FROM link JOIN user ON link.user = user.userID ORDER BY linkID DESC');
-$statement->execute();
 
 ?>
 
 <div class="share-container">
-  <img class="profile-avatar" src="<?php echo $avatar['avatar']; ?>"></img>
+  <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
   <form action="app/links/store.php" method="post">
     <input type="text" name="title" placeholder="Title">
     <input type="text" name="url" placeholder="URL">
@@ -32,9 +27,8 @@ $statement->execute();
 
 <?php
 
-$links = $statement->fetchAll(PDO::FETCH_ASSOC);
-
 foreach ($links as $link) {
+
   ?>
 
   <article class="post">
@@ -44,24 +38,16 @@ foreach ($links as $link) {
 
     // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
     $linkID = $link{'linkID'};
-    $statement_2 = $pdo->prepare('SELECT score FROM vote WHERE link = :linkID');
-    // bind param password
-    $statement_2->bindParam(':linkID', $linkID, PDO::PARAM_INT);
-    $statement_2->execute();
-    $vote = $statement_2->fetch(PDO::FETCH_ASSOC);
-    $vote = $vote{'score'};
 
+    require __DIR__.'/app/votes/store.php';
 
     if ($vote == NULL) {
-
       $vote = 0;
-
       $statement_insert_vote = $pdo->prepare('INSERT INTO vote (score, link) VALUES (:vote, :linkID)');
       // bind param LINKID
       $statement_insert_vote->bindParam(':linkID', $linkID, PDO::PARAM_INT);
       // bind param SCORE
       $statement_insert_vote->bindParam(':vote', $vote, PDO::PARAM_INT);
-
       $statement_insert_vote->execute();
       $vote = $statement_insert_vote->fetch(PDO::FETCH_ASSOC);
 
@@ -73,7 +59,6 @@ foreach ($links as $link) {
       $statement_2->execute();
       $vote = $statement_2->fetch(PDO::FETCH_ASSOC);
       $vote = $vote{'score'};
-
     }
 
     ?>
