@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 // från formuläret:
 
 if (isset($_POST['title'])) {
@@ -9,11 +10,9 @@ if (isset($_POST['title'])) {
   }
   else {
     // kopplar upp mot databasen
-    $pdo = new PDO('sqlite:app/database/database.db');
-
+    $pdo = new PDO('sqlite:../database/database.db');
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $linkID = filter_var($_POST['ID'], FILTER_SANITIZE_STRING);
-    // $linkID = $link['linkID'];
     // TODO: Implement the database insert logic here.
     $statement_1 = $pdo->prepare('UPDATE link SET title = :title WHERE linkID = :linkID');
     if (!$statement_1) {
@@ -26,6 +25,7 @@ if (isset($_POST['title'])) {
     $statement_1->execute();
     echo '<br/><br/>';
   }
+  header('Location: ../../edit-links.php');
 }
 
 if (isset($_POST['description'])) {
@@ -33,7 +33,7 @@ if (isset($_POST['description'])) {
   }
   else {
     // kopplar upp mot databasen
-    $pdo = new PDO('sqlite:app/database/database.db');
+    $pdo = new PDO('sqlite:../database/database.db');
 
     $description = filter_var($_POST['description'], FILTER_SANITIZE_STRING);
     $linkID = filter_var($_POST['ID'], FILTER_SANITIZE_STRING);
@@ -49,6 +49,7 @@ if (isset($_POST['description'])) {
     $statement_2->bindParam(':linkID', $linkID, PDO::PARAM_INT);
     $statement_2->execute();
   }
+  header('Location: ../../edit-links.php');
 }
 
 if (isset($_POST['url'])) {
@@ -56,7 +57,7 @@ if (isset($_POST['url'])) {
   }
   else {
     // kopplar upp mot databasen
-    $pdo = new PDO('sqlite:app/database/database.db');
+    $pdo = new PDO('sqlite:../database/database.db');
 
     $url = filter_var($_POST['url'], FILTER_SANITIZE_STRING);
     $linkID = filter_var($_POST['ID'], FILTER_SANITIZE_STRING);
@@ -71,6 +72,7 @@ if (isset($_POST['url'])) {
     $statement_3->bindParam(':linkID', $linkID, PDO::PARAM_INT);
     $statement_3->execute();
   }
+  header('Location: ../../edit-links.php');
 }
 
 
@@ -81,7 +83,7 @@ if (isset($_POST['ID-delete'])) {
   }
   else {
     // kopplar upp mot databasen
-    $pdo = new PDO('sqlite:app/database/database.db');
+    $pdo = new PDO('sqlite:../database/database.db');
     $linkID = filter_var($_POST['ID-delete'], FILTER_SANITIZE_STRING);
     echo $linkID;
     // TODO: Implement the database insert logic here.
@@ -95,8 +97,8 @@ if (isset($_POST['ID-delete'])) {
 
     $statement_delete->execute();
   }
+  header('Location: ../../edit-links.php');
 }
-
 
 // HÄMTA LÄNK/AR UR DATABASEN OCH VISA UPP...
 $pdo = new PDO('sqlite:app/database/database.db');

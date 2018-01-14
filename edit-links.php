@@ -8,13 +8,11 @@ session_start();
 // sätter en sessionsvariabel vid namn userID som har värdet av den inloggades ID-nummer
 $userID = $_SESSION['userID'];
 
-// kopplar upp mot databasen
-$pdo = new PDO('sqlite:app/database/database.db');
 
 $authenticated = $_SESSION['authenticated'] ?? false;
 
-require __DIR__.'/app/auth/edit-links.php'; 
 require __DIR__.'/views/header.php';
+require __DIR__.'/app/auth/edit-links.php';
 require __DIR__.'/views/navigation.php';
 
 foreach ($links as $link) {
