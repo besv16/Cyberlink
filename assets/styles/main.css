@@ -238,6 +238,7 @@ form.up-vote input, form.down-vote input {
 }
 
 .score {
+  font-size: 17px;
   color: #666;
 }
 

@@ -11,9 +11,6 @@ $authenticated = $_SESSION['authenticated'] ?? false;
 ?>
 <?php require __DIR__.'/views/header.php'; ?>
 <?php require __DIR__.'/views/navigation.php'; ?>
-<?php //if ($message !== ''): ?>
-<!-- <p><?php //echo $message; ?></p> -->
-<?php //endif; ?>
 <div class="landing-page">
   <div class="img-demo">
     <img src="media/img/demo-index.svg"></img>

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 $pdo = new PDO('sqlite:../database/database.db');
 
-
 if (isset($_POST['email'], $_POST['password'])) {
-    // $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $email = trim(filter_var($_POST['email'], FILTER_SANITIZE_EMAIL));
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -28,10 +26,10 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 }
 
+require __DIR__.'/../../views/header.php';
+require __DIR__.'/../../views/navigation.php';
 
- ?>
-<?php require __DIR__.'/../../views/header.php'; ?>
-<?php require __DIR__.'/../../views/navigation.php'; ?>
+?>
 
 <div class="landing-page">
   <div class="img-demo">
@@ -46,17 +44,5 @@ if (isset($_POST['email'], $_POST['password'])) {
     </form>
   </div>
 </div>
-
-
-       <!-- <h1>Registrera dig</h1>
-       <form action="register.php" method="post">
-         <label for="name">Email</label>
-         <input type="text" name="email">
-         <br />
-         <label for="password">Lösenord</label>
-         <input type="password" name="password">
-         <br />
-         <button type="submit">Registrera</button>
-        </form> -->
 
 <?php require __DIR__.'/../../views/footer.php'; ?>

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 $authenticated = $_SESSION['authenticated'] ?? false;
 
 ?>
