@@ -41,26 +41,6 @@ foreach ($links as $link) {
 
     require __DIR__.'/app/votes/store.php';
 
-    if ($vote == NULL) {
-      $vote = 0;
-      $statement_insert_vote = $pdo->prepare('INSERT INTO vote (score, link) VALUES (:vote, :linkID)');
-      // bind param LINKID
-      $statement_insert_vote->bindParam(':linkID', $linkID, PDO::PARAM_INT);
-      // bind param SCORE
-      $statement_insert_vote->bindParam(':vote', $vote, PDO::PARAM_INT);
-      $statement_insert_vote->execute();
-      $vote = $statement_insert_vote->fetch(PDO::FETCH_ASSOC);
-
-      // HÄMTA VOTES UR DATABASEN OCH VISA UPP...
-      $linkID = $link{'linkID'};
-      $statement_2 = $pdo->prepare('SELECT score FROM vote WHERE link = :linkID');
-      // bind param password
-      $statement_2->bindParam(':linkID', $linkID, PDO::PARAM_INT);
-      $statement_2->execute();
-      $vote = $statement_2->fetch(PDO::FETCH_ASSOC);
-      $vote = $vote{'score'};
-    }
-
     ?>
 
     <div class="vote-links">

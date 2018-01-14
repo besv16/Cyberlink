@@ -17,16 +17,12 @@ if (isset($_POST['linkID'], ($_POST['up-vote']))) {
     die(var_dump($pdo->errorInfo()));
   }
 
-
   // bind param linkID
   $statement_upVote->bindParam(':linkID', $linkID, PDO::PARAM_INT);
   // bind param newUpScore
   $statement_upVote->bindParam(':newUpScore', $newUpScore, PDO::PARAM_INT);
-
   $statement_upVote->execute();
-
   $result = $statement_upVote->fetch(PDO::FETCH_ASSOC);
-
 
   header('Location: /Cyberlink/feed.php');
 
