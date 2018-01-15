@@ -23,9 +23,8 @@ if (isset($_POST['email'], $_POST['password'])) {
     $statement_insert->bindParam(':password', $password, PDO::PARAM_STR);
     // bind param avatar
     $statement_insert->bindParam(':avatar', $avatar, PDO::PARAM_STR);
-
     $statement_insert->execute();
 
-    header('Location: /Cyberlink/index.php');
+    header('Location: ../../index.php');
 
 }

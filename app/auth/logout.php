@@ -9,4 +9,4 @@ if (isset($_SESSION['authenticated'])) {
   unset($_SESSION['userID']);
 }
 
-header('Location: /Cyberlink/');
+header('Location: ../../index.php');

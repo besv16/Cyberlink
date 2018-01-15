@@ -24,7 +24,7 @@ if (isset($_POST['linkID'], ($_POST['up-vote']))) {
   $statement_upVote->execute();
   $result = $statement_upVote->fetch(PDO::FETCH_ASSOC);
 
-  header('Location: /Cyberlink/feed.php');
+  header('Location: ../../');
 
 }
 
@@ -47,18 +47,14 @@ if (isset($_POST['linkID'], ($_POST['down-vote']))) {
     die(var_dump($pdo->errorInfo()));
   }
 
-
   // bind param linkID
   $statement_downVote->bindParam(':linkID', $linkID, PDO::PARAM_INT);
   // bind param newDownScore
   $statement_downVote->bindParam(':newDownScore', $newDownScore, PDO::PARAM_INT);
-
   $statement_downVote->execute();
-
   $result = $statement_downVote->fetch(PDO::FETCH_ASSOC);
 
-
-  header('Location: /Cyberlink/feed.php');
+  header('Location: ../../');
 
 }
 
