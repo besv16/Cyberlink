@@ -35,7 +35,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #666;
+  background-color: #e0e0e0;
 }
 
 img.nav-icon {
@@ -90,13 +90,6 @@ form input.hidden {
   display: none;
 }
 
-.footer {
-  width: 100%;
-  height: 10vh;
-  margin: 0 auto;
-  background-color: #666;
-}
-
 /* index.php */
 
 .landing-page {
@@ -120,6 +113,8 @@ form input.hidden {
   width: 350px !important;
   height: auto !important;
   border-radius: 0;
+  border: 1px solid #666;
+  opacity: 0.5;
 }
 
 .login-signup {
@@ -135,16 +130,19 @@ form input.hidden {
   margin-top: 5%;
 }
 
+.login-signup p {
+  font-size: 14px;
+}
+
 .login-signup h1 {
   font-family: 'Playfair Display';
-  font-size: 50px;
+  font-size: 48px;
   text-align: center;
 }
 
 .login-signup a {
   text-align: center;
 }
-
 
 .content {
   height: 80vh;

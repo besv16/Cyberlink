@@ -13,7 +13,7 @@ require __DIR__.'/views/navigation.php';
 
 <div class="landing-page">
   <div class="img-demo">
-    <img src="media/img/demo-index.svg"></img>
+    <img src="media/img/demo.png"></img>
   </div>
   <div class="login-signup">
     <h1>Log in</h1>

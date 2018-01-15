@@ -9,7 +9,7 @@ require __DIR__.'/views/navigation.php';
 
 <div class="landing-page">
   <div class="img-demo">
-    <img src="/Cyberlink/media/img/demo-index.svg"></img>
+    <img src="/Cyberlink/media/img/demo.png"></img>
   </div>
   <div class="login-signup">
     <h1>Sign up</h1>
