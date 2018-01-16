@@ -35,7 +35,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #e0e0e0;
+  background-color: lightcoral;
 }
 
 img.nav-icon {
@@ -168,6 +168,8 @@ form input.hidden {
 }
 
 .share-container img {
+  width: 170px;
+  max-height: 190px;
   border: 1px solid #efefef;
 }
 
@@ -255,7 +257,7 @@ form.up-vote input, form.down-vote input {
   margin: auto;
   margin-top: 90px;
   margin-bottom: 100px;
-  width: 600px;
+  width: 500px;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

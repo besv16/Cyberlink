@@ -31,3 +31,5 @@ This project is built with HTML, CSS and PHP.
 Beatrice Svensson - WU17
 
 # Testing classmates
+
+Maria Eidland

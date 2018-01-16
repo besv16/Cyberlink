@@ -1,4 +1,5 @@
 @media only screen and (max-width: 900px) {
+
   .img-demo {
     display: none;
   }
@@ -13,10 +14,79 @@
       margin: 40px 0;
   }
 
-  .post {
+  .post .meta-wrapper {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+  }
+
+  /* admin.php */
+
+  .account {
     width: 100%;
+    flex-direction: column;
     align-items: center;
   }
 
+  .post {
+    width: 100%;
+    text-align: center;
+  }
+
+  img.profile-avatar {
+    margin: 20px 0px 60px 0px;
+  }
+
+  .bio {
+    padding: 2px;
+    width: 80%;
+  }
+
+  .link-heading {
+    width: 100%;
+    text-align: center;
+  }
+
+  img.edit {
+    padding: 40px;
+  }
+
+}
+
+@media only screen and (max-width: 550px) {
+
+  .header {
+    height: 20vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  h1.heading-slogan {
+      margin-left: 0;
+  }
+
+  .header li {
+    margin-right: 0;
+  }
+
+  div.navigation {
+    width: 200px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .right {
+    width: 310px;
+  }
+
+  .description {
+    margin: 20px 0px 20px 20px;
+    width: 300px;
+  }
+
+  .post .meta-wrapper {
+    width: 370px;
+  }
 
 }
