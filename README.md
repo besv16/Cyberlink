@@ -1,6 +1,6 @@
 # Cyberlink
 
-https://media.giphy.com/media/WZ4M8M2VbauEo/giphy.gif
+https://gph.is/1KOKfoH
 
 This repository contains a Reddit clone where you can sign up, create and share your links with others and vote on links. Enjoy!
 
@@ -8,7 +8,7 @@ This repository contains a Reddit clone where you can sign up, create and share 
 
 This project is built with HTML, CSS and PHP.
 
-#Installation instructions
+# Installation instructions
 
 1. Clone or download this repository by pressing the green button (you will find the button above the list of my files which is shown above this section on this page) with the text "Clone or download".
 
@@ -25,3 +25,9 @@ This project is built with HTML, CSS and PHP.
 1. Start the local server by pressing the "Start servers"-button in the control panel of MAMP.
 
 2. Press "Open start page" and then choose "My website" option in the menu that appears in the new window/tab in your browser.
+
+# Author
+
+Beatrice Svensson - WU17
+
+# Testing classmates
