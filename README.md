@@ -1,6 +1,6 @@
 # Cyberlink
 
-https://gph.is/1KOKfoH
+<img src="https://media.giphy.com/media/WZ4M8M2VbauEo/giphy.gif" alt="Cyberlink" width="80%">
 
 This repository contains a Reddit clone where you can sign up, create and share your links with others and vote on links. Enjoy!
 
