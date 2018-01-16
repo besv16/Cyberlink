@@ -9,4 +9,4 @@ if (isset($_SESSION['authenticated'])) {
   unset($_SESSION['userID']);
 }
 
-header('Location: ../../index.php');
+header('Location: /');

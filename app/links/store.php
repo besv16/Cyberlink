@@ -32,7 +32,7 @@ if (isset($_POST['title'], $_POST['description'], $_POST['url'])) {
     $statement_insert->bindParam(':user', $userID, PDO::PARAM_STR);
     $statement_insert->execute();
 
-   header('Location: ../../');
+   header('Location: /');
 
 }
 

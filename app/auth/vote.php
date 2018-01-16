@@ -24,7 +24,7 @@ if (isset($_POST['linkID'], ($_POST['up-vote']))) {
   $statement_upVote->execute();
   $result = $statement_upVote->fetch(PDO::FETCH_ASSOC);
 
-  header('Location: ../../');
+  header('Location: /');
 
 }
 
@@ -54,7 +54,7 @@ if (isset($_POST['linkID'], ($_POST['down-vote']))) {
   $statement_downVote->execute();
   $result = $statement_downVote->fetch(PDO::FETCH_ASSOC);
 
-  header('Location: ../../');
+  header('Location: /');
 
 }
 

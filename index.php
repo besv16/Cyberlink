@@ -22,7 +22,7 @@ require __DIR__.'/views/navigation.php';
       <input type="password" name="password" placeholder="Password">
       <button type="submit">Sign in</button>
     </form>
-    <p>Don't have an account? - Then <a href="registration.php"> sign up </a>for one!</p>
+    <p>Don't have an account? - Then <a href="registration.php"> sign up </a> for one!</p>
   </div>
 </div>
 

@@ -30,4 +30,4 @@ if (!$authenticated && isset($_POST['email'], $_POST['password'])) {
   }
 }
 
-header('Location: ../../');
+header('Location: /');

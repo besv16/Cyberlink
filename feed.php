@@ -41,16 +41,16 @@ foreach ($links as $link) {
     ?>
 
     <div class="vote-links">
-      <form class="up-vote" action="/Cyberlink/app/auth/vote.php" method="post">
+      <form class="up-vote" action="/app/auth/vote.php" method="post">
         <input type="text" class="hidden" name="linkID" value="<?php echo $linkID; ?>">
         <input type="text" class="hidden" name="up-vote" value="<?php echo $vote+1; ?>">
-        <input class="image" name="image" type="image" alt="Vote up" src="/Cyberlink/media/img/up-arrow.svg">
+        <input class="image" name="image" type="image" alt="Vote up" src="/media/img/up-arrow.svg">
       </form>
       <p class="score"><?php echo $vote;?></p>
-      <form class="down-vote" action="/Cyberlink/app/auth/vote.php" method="post">
+      <form class="down-vote" action="/app/auth/vote.php" method="post">
         <input type="text" class="hidden" name="linkID" value="<?php echo $linkID; ?>">
         <input type="text" class="hidden" name="down-vote" value="<?php echo $vote-1; ?>">
-        <input class="image" name="image" type="image" alt="Vote down" src="/Cyberlink/media/img/down-arrow.svg">
+        <input class="image" name="image" type="image" alt="Vote down" src="/media/img/down-arrow.svg">
       </form>
     </div>
     <div class="right">

@@ -25,6 +25,6 @@ if (isset($_POST['email'], $_POST['password'])) {
     $statement_insert->bindParam(':avatar', $avatar, PDO::PARAM_STR);
     $statement_insert->execute();
 
-    header('Location: ../../index.php');
+    header('Location: /');
 
 }

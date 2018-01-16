@@ -22,7 +22,7 @@ if (isset($_POST['email'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
-    header('Location: edit-acc.php');
+    header('Location: /edit-acc.php');
 }
 
 if (isset($_POST['password'])) {
@@ -43,7 +43,7 @@ if (isset($_POST['password'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
     }
-      header('Location: edit-acc.php');
+      header('Location: /edit-acc.php');
   }
 
 if (isset($_POST['bio'])) {
@@ -64,7 +64,7 @@ if (isset($_POST['bio'])) {
     $statement_insert->execute();
     $user = $statement_insert->fetch(PDO::FETCH_ASSOC);
   }
-    header('Location: edit-acc.php');
+    header('Location: /edit-acc.php');
 }
 
 // BILDUPPLADDNINGEN
@@ -85,18 +85,16 @@ if (isset($_FILES['avatar'])) {
     die(var_dump($pdo->errorInfo()));
   }
 
-  // bind param email
   $statement_insert_avatar->bindParam(':avatar', $avatar2, PDO::PARAM_STR);// bind param userID
   $statement_insert_avatar->bindParam(':userID', $userID, PDO::PARAM_INT);
   $statement_insert_avatar->execute();
   $avatar3 = $statement_insert_avatar->fetch(PDO::FETCH_ASSOC);
 
-  header('Location: edit-acc.php');
+  header('Location: /edit-acc.php');
 
 }
 
 // HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
-
 $statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
@@ -107,15 +105,6 @@ $statement = $pdo->prepare('SELECT * FROM link WHERE user = :userID');
 $statement->bindParam(':userID', $userID, PDO::PARAM_STR);
 $statement->execute();
 $links = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-// HÄMTA BILDEN UR DATABASEN OCH VISA UPP...
-$statement = $pdo->prepare('SELECT avatar FROM user WHERE userID = :userID');
-$statement->bindParam(':userID', $userID, PDO::PARAM_STR);
-$statement->execute();
-
-$image = $statement->fetch(PDO::FETCH_ASSOC);
 
 // HÄMTA ALL USER INFO UR DATABASEN OCH VISA UPP...
 $statement = $pdo->prepare('SELECT * FROM user WHERE userID = :userID');

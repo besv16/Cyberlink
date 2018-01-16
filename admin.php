@@ -16,7 +16,7 @@ require __DIR__.'/views/navigation.php';
 ?>
 
 <a class="edit-a" href="edit-acc.php">
-  <img class="edit" src="/Cyberlink/media/img/edit.svg"></img>
+  <img class="edit" src="/media/img/edit.svg"></img>
 </a>
 <div class="account">
   <img class="profile-avatar" src="<?php echo $image['avatar']; ?>"></img>
@@ -28,7 +28,7 @@ require __DIR__.'/views/navigation.php';
   <p><?php echo $user['bio']; ?></p>
 </div>
 <a class="edit-a" href="edit-links.php">
-  <img class="edit" src="/Cyberlink/media/img/edit.svg"></img>
+  <img class="edit" src="/media/img/edit.svg"></img>
 </a>
 <div class="link-heading">
   <h1>Your shared links</h1>
