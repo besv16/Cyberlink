@@ -51,6 +51,15 @@
     padding: 40px;
   }
 
+  .post-edit-links {
+      font-size: 14px;
+      width: 500px;
+      margin: 70px auto;
+      display: flex;
+      flex-direction: column;
+      letter-spacing: 1.3px;
+  }
+
 }
 
 @media only screen and (max-width: 550px) {
@@ -87,6 +96,28 @@
 
   .post .meta-wrapper {
     width: 370px;
+  }
+
+  form.upload-avatar {
+    width: 340px;
+    justify-content: center;
+  }
+
+  .bio {
+    padding: 0;
+    width: 300px;
+  }
+
+  form.edit-bio textarea {
+    width: 350px;
+  }
+
+  form.edit-bio * {
+    width: 360px;
+  }
+
+  .post-edit-links {
+    width: 360px;
   }
 
 }

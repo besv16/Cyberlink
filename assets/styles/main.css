@@ -376,3 +376,12 @@ input.image {
   border: none !important;
   background-color: unset !important;
 }
+
+.post-edit-links {
+    font-size: 14px;
+    width: 500px;
+    margin: 70px auto;
+    display: flex;
+    flex-direction: column;
+    letter-spacing: 1.3px;
+}

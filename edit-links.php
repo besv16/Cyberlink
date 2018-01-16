@@ -17,7 +17,7 @@ require __DIR__.'/app/links/delete.php';
 foreach ($links as $link) {
   $linkID = $link['linkID'];
   ?>
-  <div class="post">
+  <div class="post-edit-links">
     <div class="delete-links">
       <form class="delete-links" action="app/links/delete.php" method="post">
         <input type="text" name="ID-delete" class="hidden" value="<?php echo $linkID; ?>">
