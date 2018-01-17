@@ -105,7 +105,7 @@
 
   .bio {
     padding: 0;
-    width: 300px;
+    width: 98%;
   }
 
   form.edit-bio textarea {
@@ -118,6 +118,10 @@
 
   .post-edit-links {
     width: 360px;
+  }
+
+  input.image {
+    margin-right: 20%;
   }
 
 }
