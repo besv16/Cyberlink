@@ -35,7 +35,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: lightcoral;
+  background-color: #e0e0e0;
 }
 
 img.nav-icon {
@@ -368,6 +368,10 @@ form.edit-links button {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+}
+
+input.delete-post {
+  border: 8px solid red;
 }
 
 input.image {

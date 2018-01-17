@@ -32,4 +32,4 @@ Beatrice Svensson - WU17
 
 # Testing classmates
 
-Maria Eidland
+Maria Eidland, Kajsa Taipale

@@ -21,7 +21,7 @@ foreach ($links as $link) {
     <div class="delete-links">
       <form class="delete-links" action="app/links/delete.php" method="post">
         <input type="text" name="ID-delete" class="hidden" value="<?php echo $linkID; ?>">
-        <input class="image" name="image" type="image" alt="Delete" src="/media/img/delete.svg">
+        <input class="image" class="delete-post" name="image" type="image" alt="Delete" src="/media/img/delete.svg">
       </form>
     </div>
     <form class="edit-links" action="app/links/update.php" method="post">
